@@ -1,8 +1,10 @@
 ﻿#nullable disable
+using System.Data.SqlClient;
 using AutoMapper;
+using Dapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using QUANLYDUOCPHAM.Models;
+using QUANLYDUOCPHAM.ModelsDTO;
 
 namespace QUANLYDUOCPHAM.Controllers
 {
@@ -24,18 +26,49 @@ namespace QUANLYDUOCPHAM.Controllers
         [Route("getall")]
         public async Task<ActionResult> GetAllList()
         {
-            var khohang = await _context.AppKhohangs.ToListAsync();
-            var re = new ResultMessageResponse()
+            using (var connection = new SqlConnection(new ConnectDB().conn))
             {
-                data = khohang,
-                success = true,
-                totalCount = khohang.Count()
-            };
-            return Ok(re);
+                try
+                {
+                    var query = @"SELECT dbo.APP_KHO.ID AS idkho, dbo.APP_KHO.TENKHO AS tenkho, dbo.APP_KHO.DIACHI AS diachi, dbo.APP_HANG.ID AS idhang, dbo.APP_HANG.TENHANG AS tenhang, dbo.APP_HANG.MOTA AS mota,
+                        dbo.APP_HANG.DONVI AS donvi
+                        FROM            dbo.APP_KHO INNER JOIN
+                        dbo.APP_HANG ON dbo.APP_KHO.ID = dbo.APP_HANG.ID";
+                    var res = await connection.QueryAsync(query);
+                    return Ok(new ResultMessageResponse()
+                    {
+                        success = true,
+                        data = res,
+                        totalCount = res.Count(),
+                    });
+                }
+                catch (Exception)
+                {
+
+                    return Ok(new ResultMessageResponse()
+                    {
+                        success = false,
+                        message = "Error" + NameTable.KhoHang
+                    });
+                }
+            }
         }
-        private bool AppDongmuaExists(string id)
+
+        [HttpPost]
+        [Route("add")]
+        public async Task<ActionResult> Add([FromBody] AppKhohangDTO khoHang)
         {
-            return _context.AppDongmuas.Any(e => e.Iddonmua == id);
+            var result = _mapper.Map<AppKhohang>(khoHang);
+            await _context.AddAsync(result);
+            await _context.SaveChangesAsync();
+            var res = new ResultMessageResponse()
+            {
+                success = true,
+                message = "Thành công",
+                data = khoHang
+            };
+            return Ok(res);
         }
+
     }
 }

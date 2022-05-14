@@ -1,3 +1,4 @@
+
 sap.ui.define([
     'sap/ui/core/Core',
     'sap/ui/core/mvc/Controller',
@@ -18,74 +19,75 @@ sap.ui.define([
             this.router = sap.ui.core.UIComponent.getRouterFor(this);
             this.bus = sap.ui.getCore().getEventBus();
             this.getView().setModel(this.mainModel, 'mainModel');
-            this.bus.subscribe('DonMuaChanel', 'closeDonMuaAdd', this.closeDonMuaAdd, this);
-            this.bus.subscribe('DonMuaChanel', 'closeEdit', this.closeEdit, this);
-            this.bus.subscribe('DonMuaChanel', 'switchToEditPage', this.switchToEditPage, this)
+            this.bus.subscribe('DongMuaChanel', 'closeDongMuaAdd', this.closeDongMuaAdd, this);
+            this.bus.subscribe('DongMuaChanel', 'closeEdit', this.closeEdit, this);
+            this.bus.subscribe('DongMuaChanel', 'switchToEditPage', this.switchToEditPage, this)
             this.loadDataInit();
         },
         onExit: function () {
-            this.bus.unsubscribe('DonMuaChanel', 'closeDonMuaAdd', this.closeDonMuaAdd, this)
-            this.bus.unsubscribe('DonMuaChanel', 'closeEdit', this.closeEdit, this)
-            this.bus.unsubscribe('DonMuaChanel', 'switchToEditPage', this.switchToEditPage, this)
+            this.bus.unsubscribe('DongMuaChanel', 'closeDongMuaAdd', this.closeDongMuaAdd, this)
+            this.bus.unsubscribe('DongMuaChanel', 'closeEdit', this.closeEdit, this)
+            this.bus.unsubscribe('DongMuaChanel', 'switchToEditPage', this.switchToEditPage, this)
         },
         loadDataInit: function () {
             let root = this;
-            this.mainModel.getAll(sdConfig.adminApiEndpoint + "donmua/getall").success(dt => {
+            this.mainModel.getAll(sdConfig.adminApiEndpoint + "dongmua/getall").success(dt => {
                 if (dt) {
                     for (var i = 0; i < dt.data.length; i++) {
                         dt.data[i]['STT'] = i + 1;
                     }
                     root.mainModel.setData(dt.data)
+                    console.log(root.mainModel)
                 } else return [];
             })
         },
         onAddButtonPress: function () {
             const root = this;
-            if (!this._addDonMua) {
+            if (!this._addDongMua) {
                 Fragment.load({
                     id: root.getView().getId(),
-                    name: "app.DonMua.Add",
+                    name: "app.DongMua.Add",
                     type: "XML",
                     controller: this
                 }).then(function (frag) {
-                    root._addDonMua = frag;
-                    root._addDonMua.open();
+                    root._addDongMua = frag;
+                    root._addDongMua.open();
                 });
             } else {
-                root._addDonMua.open();
+                root._addDongMua.open();
             }
         },
-        closeDonMuaAdd: function () {
-            this._addDonMua.close();
+        closeDongMuaAdd: function () {
+            this._addDongMua.close();
             this.loadDataInit();
         },
         loadEditPage: function (id) {
             let root = this;
-            if (!this._editDonMua) {
+            if (!this._editDongMua) {
                 Fragment.load({
                     id: root.getView().getId(),
-                    name: "app.DonMua.Edit",
+                    name: "app.DongMua.Edit",
                     type: "XML",
                     controller: this
                 }).then(function (frag) {
-                    root._editDonMua = frag;
-                    root._editDonMua.open();
-                    root.bus.publish('DonMuaChanel', 'loadEditPage', {
+                    root._editDongMua = frag;
+                    root._editDongMua.open();
+                    root.bus.publish('DongMuaChanel', 'loadEditPage', {
                         Id: id
                     }); //null
                 });
             } else {
-                root._editDonMua.open();
-                this.bus.publish('DonMuaChanel', 'loadEditPage', {
+                root._editDongMua.open();
+                this.bus.publish('DongMuaChanel', 'loadEditPage', {
                     Id: id
                 }); //null
             }
-            if (this._DonMuaDetail) {
-                this._DonMuaDetail.close();
+            if (this._DongMuaDetail) {
+                this._DongMuaDetail.close();
             }
         },
         onRowEdit: function (oEvent) {
-            let selectedId = this.getView().getModel('mainModel').getProperty('id', oEvent.getParameter('row').getBindingContext('mainModel'));
+            let selectedId = this.getView().getModel('mainModel').getProperty('iddonmua', oEvent.getParameter('row').getBindingContext('mainModel'));
             this.loadEditPage(selectedId)
 
         },
@@ -93,13 +95,13 @@ sap.ui.define([
             this.loadEditPage(oData.Id)
         },
         closeEdit: function () {
-            this._editDonMua.close();
+            this._editDongMua.close();
             this.loadDataInit();
         },
         onRowDelete: function (oEvent) {
             let root = this;
-            let selectedId = this.getView().getModel('mainModel').getProperty('id', oEvent.getParameter('row').getBindingContext('mainModel'));
-            new CoreJsonModel().deleteById(sdConfig.adminApiEndpoint + "donmua/delete/" + selectedId).success(dt => {
+            let selectedId = this.getView().getModel('mainModel').getProperty('iddonmua', oEvent.getParameter('row').getBindingContext('mainModel'));
+            new CoreJsonModel().deleteById(sdConfig.adminApiEndpoint + "dongmua/delete/" + selectedId).success(dt => {
                 MessageToast.show(dt.message);
                 root.loadDataInit();
             })
@@ -108,33 +110,33 @@ sap.ui.define([
             let selected = this.getView().getModel('mainModel').getProperty('', oEvent.getParameter('rowBindingContext'));
             if (selected) {
                 const root = this;
-                if (!this._DonMuaDetail) {
+                if (!this._DongMuaDetail) {
                     Fragment.load({
                         id: root.getView().getId(),
-                        name: "app.DonMua.Detail",
+                        name: "app.DongMua.Detail",
                         type: "XML",
                         controller: this
                     }).then(function (frag) {
-                        root._DonMuaDetail = frag;
-                        root._DonMuaDetail.open();
-                        root.bus.publish('DonMuaChanel', 'loadDetailPage', {
-                            Id: selected.id
+                        root._DongMuaDetail = frag;
+                        root._DongMuaDetail.open();
+                        root.bus.publish('DongMuaChanel', 'loadDetailPage', {
+                            Id: selected.iddonmua
                         });
                     });
                 } else {
-                    root._DonMuaDetail.open();
-                    root.bus.publish('DonMuaChanel', 'loadDetailPage', {
-                        Id: selected.id
+                    root._DongMuaDetail.open();
+                    root.bus.publish('DongMuaChanel', 'loadDetailPage', {
+                        Id: selected.iddonmua
                     });
                 }
             }
         },
-        onCloseDonMuaDetail: function () {
-            this._DonMuaDetail.close();
+        onCloseDongMuaDetail: function () {
+            this._DongMuaDetail.close();
             this.loadDataInit();
         }
         //#endregion
         //#endregion
     };
-    return Controller.extend('app.DonMua.List', oController);
+    return Controller.extend('app.DongMua.List', oController);
 });

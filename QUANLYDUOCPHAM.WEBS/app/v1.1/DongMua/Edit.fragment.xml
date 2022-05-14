@@ -1,0 +1,9 @@
+
+    <core:FragmentDefinition xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
+        <Dialog id="editDongMuaDialog" contentHeight="450px" contentWidth="760px" showHeader="false">
+            <content>
+                <mvc:XMLView viewName="app.DongMua.Edit" id="app.DongMua.Edit" />
+            </content>
+        </Dialog>
+    </core:FragmentDefinition>
+    

@@ -1,0 +1,44 @@
+    <core:FragmentDefinition controllerName="app.DongDat.Detail" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<f:Form id="FormChange471" editable="true">
+			<f:toolbar>
+				<Toolbar id="TB1">
+					<Title text="{mainModel>/id}" />
+					<ToolbarSpacer />
+					<Button icon="sap-icon://edit" press="onEditButtonPress" />
+					<Button icon="sap-icon://delete" press="onDeleteButtonPress" />
+				</Toolbar>
+			</f:toolbar>
+
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+                        
+    <f:FormElement label="ID Đơn đặt">
+        <f:fields>
+            <Text text="{mainModel>/iddondat}" id="iddondat" />
+        </f:fields>
+    </f:FormElement>
+        
+    <f:FormElement label="ID Hàng">
+        <f:fields>
+            <Text text="{mainModel>/idhang}" id="idhang" />
+        </f:fields>
+    </f:FormElement>
+        
+    <f:FormElement label="Số lượng nhập">
+        <f:fields>
+            <Text text="{mainModel>/soluong}" id="soluong" />
+        </f:fields>
+    </f:FormElement>
+        
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</VBox>
+</core:FragmentDefinition>
+    

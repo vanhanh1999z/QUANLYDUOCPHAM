@@ -11,7 +11,6 @@ namespace QUANLYDUOCPHAM.Validator
             RuleFor(x => x.Idkho).MaximumLength(6).WithMessage("Mã kho không thể lớn hơn 6 ký tự!");
             RuleFor(x => x.Idhang).NotEmpty().WithMessage(ValidatorString.GetMessageNotNull("Mã hàng"));
             RuleFor(x => x.Idhang).MaximumLength(6).WithMessage("Mã hàng không thể lớn hơn 6 ký tự");
-            RuleFor(x => x.Slnhap).NotEmpty().WithMessage(ValidatorString.GetMessageNotNull("Số lượng nhập"));
         }
     }
 }

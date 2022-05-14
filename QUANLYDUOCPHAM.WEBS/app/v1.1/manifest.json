@@ -111,6 +111,16 @@
                     "pattern": "phieu-chi",
                     "name": "phieuchi",
                     "target": ["rootMaster", "phieuchi"]
+                },
+                {
+                    "pattern": "kho-hang",
+                    "name": "khohang",
+                    "target": ["rootMaster", "khohang"]
+                },
+                {
+                    "pattern": "dong-mua",
+                    "name": "dongmua",
+                    "target": ["rootMaster", "dongmua"]
                 }
 
             ],
@@ -184,6 +194,20 @@
                     "controlId": "appRoot",
                     "controlAggregation": "detailPages",
                     "viewLevel": 10
+                },
+                "khohang": {
+                    "viewId": "phieuchi",
+                    "viewName": "KhoHang.List",
+                    "controlId": "appRoot",
+                    "controlAggregation": "detailPages",
+                    "viewLevel": 11
+                },
+                "dongmua": {
+                    "viewId": "dongmua",
+                    "viewName": "DongMua.List",
+                    "controlId": "appRoot",
+                    "controlAggregation": "detailPages",
+                    "viewLevel": 12
                 }
             }
         }

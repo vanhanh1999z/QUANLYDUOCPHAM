@@ -24,14 +24,14 @@ namespace QUANLYDUOCPHAM.Controllers
         //#region READING
         [HttpPost]
         [Route(routeApi + "/getall")]
-        public async Task<ActionResult> GetListDonHang([FromBody]Pager page)
+        public async Task<ActionResult> GetListDonHang([FromBody] Pager page)
         {
             using (var connection = new SqlConnection(new ConnectDB().conn))
             {
                 var kh = await _context.AppHangs.ToListAsync();
-                var query = @"SELECT * FROM "+NameTable.Hang+@"
-                            ORDER BY ID 
-                            OFFSET @Offset ROWS 
+                var query = @"SELECT * FROM " + NameTable.Hang + @"
+                            ORDER BY ID
+                            OFFSET @Offset ROWS
                             FETCH NEXT @Next ROWS ONLY";
                 var res = await connection.QueryAsync<AppHangDTO>(query, page);
                 try
@@ -39,7 +39,7 @@ namespace QUANLYDUOCPHAM.Controllers
                     return Ok(new ResultMessageResponse()
                     {
                         success = true,
-                        data =res,
+                        data = res,
                         totalCount = kh.Count()
                     });
                 }
@@ -52,9 +52,33 @@ namespace QUANLYDUOCPHAM.Controllers
                     });
                 }
             }
-
-
         }
+        [HttpGet]
+        [Route(routeApi + "/getallwithoutpaning")]
+        public async Task<ActionResult> getAllWithoutPaning()
+        {
+            try
+            {
+                var res = await new GenericRepository<AppHangDTO>(NameTable.Hang).GetAllAsync();
+                var re = new ResultMessageResponse()
+                {
+                    data = res,
+                    success = true,
+                    totalCount = res.Count()
+                };
+                return Ok(re);
+            }
+            catch (Exception)
+            {
+                return Ok(new ResultMessageResponse()
+                {
+                    success = false,
+                    message = "Error" + NameTable.Hang,
+                });
+
+            }
+        }
+
 
         [HttpGet]
         [Route(routeApi + "/{id}")]
@@ -88,14 +112,14 @@ namespace QUANLYDUOCPHAM.Controllers
 
             for (int i = 0; i < 1000; i++)
             {
-                var id = "S"+i;
+                var id = "S" + i;
                 var isCheck = kh.Find(x => x.Id.Equals(id));
                 if (isCheck == null)
                 {
                     kh.Add(new AppHangDTO()
                     {
                         Id = id,
-                        Donvi = "MO"+i,
+                        Donvi = "MO" + i,
                         Tenhang = Faker.Name.FullName(),
                     });
                 }

@@ -2,13 +2,14 @@
 {
     public class appContants
     {
-       
+
     }
     public struct UrlApi
     {
         public const string donDatUrl = "v1/api/dondat";
         public const string dongDatUrl = "v1/api/dongdat";
         public const string dongGiaoUrl = "v1/api/donggiao";
+        public const string dongNhapUrl = "v1/api/dongnhap";
         public const string dongMuaUrl = "v1/api/dongmua";
         public const string khacHangUrl = "v1/api/khachhang";
         public const string nhacCungCapUrl = "v1/api/nhaccungcap";
@@ -33,5 +34,6 @@
         public const string PhieuNhap = "APP_PHIEUNHAP";
         public const string PhieuThu = "APP_PHIEUTHU";
         public const string DonMua = "APP_DONMUA";
+        public const string KhoHang = "APP_KHOHANG";
     }
 }

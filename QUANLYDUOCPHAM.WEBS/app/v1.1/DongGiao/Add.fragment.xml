@@ -1,0 +1,11 @@
+
+    <core:FragmentDefinition
+        xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+        xmlns:core="sap.ui.core">
+        <Dialog id="addDongGiaoDialog" contentHeight="450px" contentWidth="760px" resizable="true" draggable="true"  showHeader="false">
+            <content>
+                <mvc:XMLView viewName="app.DongGiao.Add" id="app.DongGiao.Add"/>
+            </content>
+        </Dialog>
+    </core:FragmentDefinition>
+        

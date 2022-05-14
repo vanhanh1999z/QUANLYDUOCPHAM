@@ -1,0 +1,19 @@
+
+    <core:FragmentDefinition xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
+        <Dialog id="detailDongMuaDialog" contentHeight="450px" contentWidth="760px" showHeader="true" title="" verticalScrolling="false">
+            <customHeader>
+                <Toolbar>
+                    <Title text="Thông tin chi tiết phần mềm" />
+                    <ToolbarSpacer />
+                    <OverflowToolbarButton icon="sap-icon://decline" press="onCloseDongMuaDetail" />
+                </Toolbar>
+            </customHeader>
+            <endButton>
+                <Button text="Đóng" press="onCloseDongMuaDetail" />
+            </endButton>
+            <content>
+                <mvc:XMLView viewName="app.DongMua.Detail" id="app.DongMua.Detail" />
+            </content>
+        </Dialog>
+    </core:FragmentDefinition>
+    

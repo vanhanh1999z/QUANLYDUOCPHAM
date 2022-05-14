@@ -1,0 +1,9 @@
+
+    <core:FragmentDefinition xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
+        <Dialog id="editKhoHangDialog" contentHeight="450px" contentWidth="760px" showHeader="false">
+            <content>
+                <mvc:XMLView viewName="app.KhoHang.Edit" id="app.KhoHang.Edit" />
+            </content>
+        </Dialog>
+    </core:FragmentDefinition>
+    

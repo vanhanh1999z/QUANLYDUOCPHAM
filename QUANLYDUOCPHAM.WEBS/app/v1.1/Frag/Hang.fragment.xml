@@ -1,0 +1,40 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog contentWidth="1000px" contentHeight="600px" id="hangDialog" noDataText="Không có dữ liệu..." title="Lựa chọn hàng" search=".handleSearch" confirm=".handleClose" cancel=".handleClose" items="{
+				path : 'hangModel>/',
+				sorter : {
+					path : 'id',
+					descending : false
+				}
+			}">
+		<ColumnListItem vAlign="Middle">
+			<cells>
+				<ObjectIdentifier title="{hangModel>id}" />
+				<Text class="textRed" text="{hangModel>tenhang}" />
+				<Text text="{hangModel>mota}" />
+				<Text text="{hangModel>donvi}" />
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column width="12em">
+				<header>
+					<Text text="Mã hàng" />
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="Tên hàng" />
+				</header>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+				<header>
+					<Text text="Mô tả" />
+				</header>
+			</Column>
+			<Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+				<header>
+					<Text text="Đơn vị" />
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

@@ -174,6 +174,18 @@
                         "Value": "Đơn mua"
                     },
                     {
+                        "Icon": "sap-icon://batch-payments",
+                        "Position": "main",
+                        "RequirePermission": true,
+                        "Endpoint": "dongmua",
+                        "Expanded": true,
+                        "Index": 1,
+                        "Parent": "NHAPHANG",
+                        "Level": 1,
+                        "Key": "DONGMUA",
+                        "Value": "Dòng mua hàng"
+                    },
+                    {
                         "Icon": "sap-icon://enter-more",
                         "Position": "main",
                         "RequirePermission": true,
@@ -189,7 +201,7 @@
                         "Icon": "sap-icon://filter-analytics",
                         "Position": "main",
                         "RequirePermission": true,
-                        "Endpoint": "tonkho",
+                        "Endpoint": "khohang",
                         "Expanded": true,
                         "Index": 1,
                         "Parent": "NHAPHANG",

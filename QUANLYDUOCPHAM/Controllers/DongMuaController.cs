@@ -1,4 +1,4 @@
-﻿#nullable disable
+#nullable disable
 using System.Data.SqlClient;
 using AutoMapper;
 using Dapper;
@@ -10,14 +10,14 @@ using QUANLYDUOCPHAM.ModelsDTO;
 
 namespace QUANLYDUOCPHAM.Controllers
 {
-    [Route(UrlApi.donMuaUrl)]
+    [Route(UrlApi.dongMuaUrl)]
     [ApiController]
-    public class DonMuaController : ControllerBase
+    public class DongMuaController : ControllerBase
     {
         private readonly QUANLYKHODUOCPHAMContext _context;
         private readonly IMapper _mapper;
         private readonly RandomString randomString;
-        public DonMuaController(QUANLYKHODUOCPHAMContext context, IMapper mapper)
+        public DongMuaController(QUANLYKHODUOCPHAMContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -32,9 +32,13 @@ namespace QUANLYDUOCPHAM.Controllers
             {
                 try
                 {
-                    var query = @"SELECT DM.ID AS id, DM.NGAYMUA as ngaymua, NCC.TENNCC as tenncc, NCC.DIACHI as diachi, NCC.DIENTHOAI as dienthoai
-                                FROM APP_DONMUA AS DM, APP_NHACUNGCAP AS NCC
-                                WHERE DM.IDNCC = NCC.ID
+                    var query = @"SELECT        dbo.APP_DONGMUA.IDDONMUA AS iddonmua, dbo.APP_DONMUA.NGAYMUA AS ngaymua, dbo.APP_DONMUA.IDNCC AS idncc, dbo.APP_NHACUNGCAP.TENNCC AS tenncc, dbo.APP_NHACUNGCAP.DIACHI AS diachi,
+                            dbo.APP_NHACUNGCAP.DIENTHOAI AS dienthoai, dbo.APP_DONGMUA.IDHANG AS idhang, dbo.APP_HANG.TENHANG AS tenhang, dbo.APP_HANG.MOTA AS mota, dbo.APP_HANG.DONVI AS donvi,
+                            dbo.APP_DONGMUA.SOLUONG AS soluong
+                            FROM            dbo.APP_DONGMUA INNER JOIN
+                            dbo.APP_DONMUA ON dbo.APP_DONGMUA.IDDONMUA = dbo.APP_DONMUA.ID INNER JOIN
+                            dbo.APP_HANG ON dbo.APP_DONGMUA.IDHANG = dbo.APP_HANG.ID INNER JOIN
+                            dbo.APP_NHACUNGCAP ON dbo.APP_DONMUA.IDNCC = dbo.APP_NHACUNGCAP.ID
                                 ";
                     var res = await connection.QueryAsync(query);
                     return Ok(new ResultMessageResponse()
@@ -64,9 +68,13 @@ namespace QUANLYDUOCPHAM.Controllers
             {
                 try
                 {
-                    var query = @"SELECT DM.ID AS id, DM.NGAYMUA as ngaymua, NCC.ID AS idncc, NCC.TENNCC as tenncc, NCC.DIACHI as diachi, NCC.DIENTHOAI as dienthoai
-                                FROM APP_DONMUA AS DM, APP_NHACUNGCAP AS NCC
-                                WHERE DM.IDNCC = NCC.ID AND DM.ID ='" + id + "'";
+                    var query = @"SELECT        dbo.APP_DONGMUA.IDDONMUA AS iddonmua, dbo.APP_DONMUA.NGAYMUA AS ngaymua, dbo.APP_DONMUA.IDNCC AS idncc, dbo.APP_NHACUNGCAP.TENNCC AS tenncc, dbo.APP_NHACUNGCAP.DIACHI AS diachi,
+                         dbo.APP_NHACUNGCAP.DIENTHOAI AS dienthoai, dbo.APP_DONGMUA.IDHANG AS idhang, dbo.APP_HANG.TENHANG AS tenhang, dbo.APP_HANG.MOTA AS mota, dbo.APP_HANG.DONVI AS donvi,
+                         dbo.APP_DONGMUA.SOLUONG AS soluong
+FROM            dbo.APP_DONGMUA INNER JOIN
+                         dbo.APP_DONMUA ON dbo.APP_DONGMUA.IDDONMUA = dbo.APP_DONMUA.ID INNER JOIN
+                         dbo.APP_HANG ON dbo.APP_DONGMUA.IDHANG = dbo.APP_HANG.ID INNER JOIN
+                         dbo.APP_NHACUNGCAP ON dbo.APP_DONMUA.IDNCC = dbo.APP_NHACUNGCAP.ID AND dbo.APP_DONGMUA.IDDONMUA  = '" + id + "'";
                     var res = await connection.QueryAsync(query);
                     return Ok(new ResultMessageResponse()
                     {
@@ -116,28 +124,10 @@ namespace QUANLYDUOCPHAM.Controllers
         }
         [HttpPost]
         [Route("add")]
-        public async Task<ActionResult> UpdateDonMua([FromBody] AppDonmuaDTO donMua)
+        public async Task<ActionResult> Add([FromBody] AppDongmuaDTO dongMua)
         {
-            var isCheckDonMua = await _context.AppDonmuas.AsNoTracking().FirstOrDefaultAsync(x => x.Id.Equals(donMua.Id));
-            var isCheckNCC = await _context.AppNhacungcaps.AsNoTracking().FirstOrDefaultAsync(x => x.Id.Equals(donMua.Idncc));
-            if (isCheckDonMua != null)
-            {
-                return Ok(new ResultMessageResponse()
-                {
-                    success = false,
-                    message = "Mã phiếu đơn mua bị trùng, vui vòng nhập mã khác!"
-                });
-            }
 
-            if (isCheckNCC == null)
-            {
-                return Ok(new ResultMessageResponse()
-                {
-                    success = false,
-                    message = "Không tồn tại nhà cung cấp trên, vui lòng thử lại!"
-                });
-            }
-            var result = _mapper.Map<AppDonmua>(donMua);
+            var result = _mapper.Map<AppDongmua>(dongMua);
             await _context.AddAsync(result);
             await _context.SaveChangesAsync();
             var res = new ResultMessageResponse()
@@ -150,10 +140,9 @@ namespace QUANLYDUOCPHAM.Controllers
         }
         [HttpPost]
         [Route("update")]
-        public async Task<ActionResult> AddDongmua([FromBody] AppDonmuaDTO donMua)
+        public async Task<ActionResult> Update([FromBody] AppDongmuaDTO dongMua)
         {
-            var isCheckDonMua = await _context.AppDonmuas.AsNoTracking().FirstOrDefaultAsync(x => x.Id.Equals(donMua.Id));
-            var isCheckNCC = await _context.AppNhacungcaps.AsNoTracking().FirstOrDefaultAsync(x => x.Id.Equals(donMua.Idncc));
+            var isCheckDonMua = await _context.AppDongmuas.AsNoTracking().FirstOrDefaultAsync(x => x.Iddonmua.Equals(dongMua.Iddonmua));
             if (isCheckDonMua == null)
             {
                 return Ok(new ResultMessageResponse()
@@ -162,16 +151,7 @@ namespace QUANLYDUOCPHAM.Controllers
                     message = "Mã phiếu đơn mua không tồn tại!"
                 });
             }
-
-            if (isCheckNCC == null)
-            {
-                return Ok(new ResultMessageResponse()
-                {
-                    success = false,
-                    message = "Không tồn tại nhà cung cấp trên, vui lòng thử lại!"
-                });
-            }
-            var result = _mapper.Map<AppDonmua>(donMua);
+            var result = _mapper.Map<AppDonmua>(dongMua);
             _context.Attach(result);
             _context.Entry(result).State = EntityState.Modified;
             await _context.SaveChangesAsync();
@@ -188,7 +168,7 @@ namespace QUANLYDUOCPHAM.Controllers
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> DeleteAppDongmua(string id)
         {
-            var isCheck = await _context.AppDonmuas.AsNoTracking().FirstOrDefaultAsync(x => x.Id.Equals(id));
+            var isCheck = await _context.AppDongmuas.AsNoTracking().FirstOrDefaultAsync(x => x.Iddonmua.Equals(id));
             if (isCheck == null)
             {
                 return Ok(new ResultMessageResponse()
@@ -197,7 +177,7 @@ namespace QUANLYDUOCPHAM.Controllers
                     success = false
                 });
             }
-            _context.AppDonmuas.Remove(isCheck);
+            _context.AppDongmuas.Remove(isCheck);
             await _context.SaveChangesAsync();
             return Ok(new ResultMessageResponse()
             {
