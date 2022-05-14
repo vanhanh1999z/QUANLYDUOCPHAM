@@ -142,26 +142,32 @@ FROM            dbo.APP_DONGMUA INNER JOIN
         [Route("update")]
         public async Task<ActionResult> Update([FromBody] AppDongmuaDTO dongMua)
         {
-            var isCheckDonMua = await _context.AppDongmuas.AsNoTracking().FirstOrDefaultAsync(x => x.Iddonmua.Equals(dongMua.Iddonmua));
-            if (isCheckDonMua == null)
+            using (var connection = new SqlConnection(new ConnectDB().conn))
             {
-                return Ok(new ResultMessageResponse()
+                try
                 {
-                    success = false,
-                    message = "Mã phiếu đơn mua không tồn tại!"
-                });
+                    var query = @"UPDATE APP_DONGMUA SET IDHANG = '" + dongMua.Idhang + @"',
+                    SOLUONG =" + dongMua.Soluong + @"
+                    WHERE IDDONMUA = '" + dongMua.Iddonmua + "'";
+                    var res = await connection.QueryAsync(query);
+                    return Ok(new ResultMessageResponse()
+                    {
+                        success = true,
+                        data = res,
+                        message = "Thành công!",
+                        totalCount = res.Count(),
+                    });
+                }
+                catch (Exception)
+                {
+
+                    return Ok(new ResultMessageResponse()
+                    {
+                        success = false,
+                        message = "Error" + NameTable.DonMua
+                    });
+                }
             }
-            var result = _mapper.Map<AppDonmua>(dongMua);
-            _context.Attach(result);
-            _context.Entry(result).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-            var res = new ResultMessageResponse()
-            {
-                success = true,
-                message = "Thành công",
-                data = result
-            };
-            return Ok(res);
         }
 
         // DELETE: api/DonMua/5

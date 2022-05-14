@@ -48,9 +48,6 @@ sap.ui.define([
                 ...this.Base.getDataFromGroup(GROUP_NAME),
                 ...this.selectedId
             }
-
-            console.log({ iddonmua: id, idhang, soluong })
-            console.log({ id, idncc, ngaymua })
             if (true) {
                 await new CoreJsonModel().postToAPI(sdConfig.adminApiEndpoint + "donmua/add", { id, idncc, ngaymua }).success(dt => {
                     MessageToast.show(dt.message);

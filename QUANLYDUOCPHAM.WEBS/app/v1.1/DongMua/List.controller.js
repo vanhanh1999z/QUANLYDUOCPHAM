@@ -37,7 +37,6 @@ sap.ui.define([
                         dt.data[i]['STT'] = i + 1;
                     }
                     root.mainModel.setData(dt.data)
-                    console.log(root.mainModel)
                 } else return [];
             })
         },

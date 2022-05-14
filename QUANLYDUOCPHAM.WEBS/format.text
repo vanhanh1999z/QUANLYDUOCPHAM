@@ -1,0 +1,12 @@
+type: 'sap.ui.model.type.DateTime',
+formatOptions: {
+source: { pattern: 'yyyy-MM-ddTHH:mm:ss.SSS', UTC: true },
+pattern: 'dd/MM/yyyy',
+UTC: false
+}
+
+
+<m:ObjectStatus text="{
+path:'mainModel>dienthoai',
+formatter: '.fs.telephoneNumber' }" state="{path:'mainModel>dienthoai',
+formatter: '.fs.telephoneNumberState' }" />

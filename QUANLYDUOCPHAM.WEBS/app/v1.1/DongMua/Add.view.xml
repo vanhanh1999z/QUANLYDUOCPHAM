@@ -49,14 +49,11 @@
                                         <Input id="idhang" name='idhang' fieldGroupIds='addGroup' type="Text" placeholder="Vui lòng nhập dữ liệu" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleValueHelpHang" class="sapUiSmallMarginBottom" />
                                     </f:fields>
                                 </f:FormElement>
-
                                 <f:FormElement label="Số lượng nhập">
                                     <f:fields>
                                         <Input id="soluong" name='soluong' fieldGroupIds='addGroup' maxLength="255" required="false" />
                                     </f:fields>
                                 </f:FormElement>
-
-
                             </f:formElements>
                         </f:FormContainer>
                     </f:formContainers>

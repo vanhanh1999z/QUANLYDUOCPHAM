@@ -17,19 +17,20 @@
             })
             return oData
         },
-        getById: function (sURL,id) {
+        getById: function (sURL, id) {
             let that = this;
             let oData = jQuery.ajax({
                 type: "GET",
                 contentType: "application/json",
-                url: sURL+'/'+id,
+                url: sURL + '/' + id,
                 dataType: "json",
                 async: false,
             })
             return oData
         },
-        postToAPI: function (sURL,data) {
+        postToAPI: function (sURL, data) {
             let oData = jQuery.ajax({
+                async: true,
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
                 url: sURL,
