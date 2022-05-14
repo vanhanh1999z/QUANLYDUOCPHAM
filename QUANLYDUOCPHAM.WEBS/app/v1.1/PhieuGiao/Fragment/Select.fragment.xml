@@ -1,0 +1,12 @@
+﻿<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog contentHeight="50vh" noDataText="Không có dữ liệu, vui lòng thử lại sau" title="Danh sách phiếu mua" search=".onSearch" confirm=".onValueHelpDialogClose" cancel=".onValueHelpDialogClose" showClearButton="true" items="{donDatModel>/}">
+		<StandardListItem title="{donDatModel>id}" description="{
+			path: 'donDatModel>ngaydat',
+			type: 'sap.ui.model.type.DateTime',
+			formatOptions: {
+			source: { pattern: 'yyyy-MM-ddTHH:mm:ss.SSS', UTC: true },
+			pattern: 'dd/MM/yyyy',
+			UTC: false}
+		}" info="{donDatModel>tenkh}" iconDensityAware="false" iconInset="false" type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

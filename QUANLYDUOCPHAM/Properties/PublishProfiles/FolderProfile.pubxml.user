@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\inetpub\wwwroot\Glo</_PublishTargetUrl>
+    <History>True|2022-05-08T03:21:53.6904510Z;True|2022-05-08T10:17:16.9440763+07:00;True|2022-04-28T09:16:43.8268371+07:00;</History>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DapperConnection">
+      <Value>Server=DESKTOP-NTS1C4Q%3bDatabase=QUANLYKHODUOCPHAM%3bTrusted_Connection=True%3bMultipleActiveResultSets=true</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=DESKTOP-NTS1C4Q%3bDatabase=QUANLYKHODUOCPHAM%3bTrusted_Connection=True%3bMultipleActiveResultSets=true</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="QUANLYDUOCPHAM.Models.QUANLYKHODUOCPHAMContext">
+      <Value>Server=DESKTOP-NTS1C4Q%3bDatabase=QUANLYKHODUOCPHAM%3bTrusted_Connection=True%3bMultipleActiveResultSets=true</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

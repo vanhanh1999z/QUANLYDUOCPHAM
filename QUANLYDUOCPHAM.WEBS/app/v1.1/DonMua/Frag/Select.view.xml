@@ -1,0 +1,55 @@
+
+<core:View height="100%"
+			xmlns:core="sap.ui.core"
+			xmlns="sap.m"
+			xmlns:l="sap.ui.layout"
+			xmlns:cc="app.ext.Controls"
+			xmlns:dnd="sap.ui.core.dnd"
+			xmlns:u="sap.ui.unified"
+			xmlns:f="sap.ui.layout.form"
+			xmlns:t="sap.ui.table"
+			xmlns:mvc="sap.ui.core.mvc"
+			controllerName="app.DonMua.Frag.Select">
+			<TableSelectDialog
+			id="myDialog"
+			noDataText="Không có dữ liệu..."
+			title="Lựa chọn nhà cung cấp"
+			search=".handleSearch"
+			confirm=".handleClose"
+			cancel=".handleClose"
+			items="{
+				path : '/NhaCungCap',
+				sorter : {
+					path : 'id',
+					descending : false
+				}
+			}">
+			<ColumnListItem vAlign="Middle">
+				<cells>
+					<ObjectIdentifier title="{id}" text="{tenncc}" />
+					<Text text="{diachi}" />
+					<Text text="{dienthoai}" />
+				</cells>
+			</ColumnListItem>
+			<columns>
+				<Column width="12em">
+					<header>
+						<Text text="Tên nhà cung cấp" />
+					</header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<header>
+						<Text text="Địa chỉ" />
+					</header>
+				</Column>
+				<Column
+					minScreenWidth="Desktop"
+					demandPopin="true"
+					hAlign="End">
+					<header>
+						<Text text="Số điện thoại" />
+					</header>
+				</Column>
+			</columns>
+		</TableSelectDialog>
+    </core:View>

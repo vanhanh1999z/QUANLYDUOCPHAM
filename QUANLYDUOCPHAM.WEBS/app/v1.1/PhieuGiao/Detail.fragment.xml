@@ -1,0 +1,18 @@
+
+    <core:FragmentDefinition xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
+        <Dialog id="detailPhieuGiaoDialog" contentHeight="450px" contentWidth="1000px" showHeader="true" title="" verticalScrolling="false">
+            <customHeader>
+                <Toolbar>
+                    <Title text="Thông tin chi tiết phần mềm" />
+                    <ToolbarSpacer />
+                    <OverflowToolbarButton icon="sap-icon://decline" press="onClosePhieuGiaoDetail" />
+                </Toolbar>
+            </customHeader>
+            <endButton>
+                <Button text="Đóng" press="onClosePhieuGiaoDetail" />
+            </endButton>
+            <content>
+                <mvc:XMLView viewName="app.PhieuGiao.Detail" id="app.PhieuGiao.Detail" />
+            </content>
+        </Dialog>
+    </core:FragmentDefinition>

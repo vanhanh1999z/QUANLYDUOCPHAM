@@ -1,0 +1,5 @@
+﻿<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog contentHeight="50vh" noDataText="Không có dữ liệu, vui lòng thử lại sau" title="Danh sách phiếu mua" search=".onSearch" confirm=".onValueHelpDialogClose" cancel=".onValueHelpDialogClose" showClearButton="true" items="{donMuaModel>/}">
+		<StandardListItem title="{donMuaModel>id}" description="{donMuaModel>idncc}" iconDensityAware="false" iconInset="false" type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,103 @@
+<mvc:View controllerName="app.DonDat.List" height="100%"
+	xmlns="sap.ui.table"
+	xmlns:c="sap.ui.core"
+	xmlns:f="sap.f"
+	xmlns:m="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout"
+	xmlns:u="sap.ui.unified"
+	xmlns:form="sap.ui.layout.form">
+	<f:DynamicPage headerExpanded="true" toggleHeaderOnTitleClick="true" fitContent="true" class="sapUiNoContentPadding">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<m:Title text="Quản lý DonDat" />
+				</f:heading>
+				<f:actions>
+					<m:OverflowToolbarButton tooltip="Thêm mới" text="Thêm mới" type="Transparent" icon="sap-icon://add-document" press="onAddButtonPress" />
+					<m:OverflowToolbarButton id="btnDelete" press="deleteItems" text="Xóa" tooltip="Xóa" icon="sap-icon://delete" type="Transparent" visible="false" />
+					<m:OverflowToolbarButton icon="sap-icon://refresh" tooltip="Tải lại" text="Tải lại" type="Transparent" press="onRefresh" />
+				</f:actions>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+			<f:DynamicPageHeader pinnable="false">
+				<form:Form editable="true" id="alo">
+					<form:layout>
+						<form:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" />
+					</form:layout>
+					<form:formContainers>
+						<form:FormContainer>
+							<form:formElements>
+								<form:FormElement label="Tìm kiếm">
+									<form:fields>
+										<m:SearchField id="searchField" placeholder="Tìm kiếm theo tên hàng" search="onSearch" liveChange="onLiveChange" />
+									</form:fields>
+								</form:FormElement>
+							</form:formElements>
+						</form:FormContainer>
+					</form:formContainers>
+				</form:Form>
+			</f:DynamicPageHeader>
+		</f:header>
+
+		<f:content>
+			<Table id="mainTable" visibleRowCountMode="Auto" noData="Không có kết quả phù hợp" selectionMode="MultiToggle" rows="{mainModel>/}" ariaLabelledBy="title" rowActionCount="2" fixedColumnCount="3" rowSelectionChange="onRowSelectionChange" cellClick="onCellClick" firstVisibleRowChanged="onScroll">
+				<extension>
+					<m:OverflowToolbar>
+						<m:Text id="viewSettingText" />
+						<m:ToolbarSpacer />
+						<m:OverflowToolbarButton id="openMenu" type="Transparent" icon="sap-icon://show" tooltip="Chọn cột hiển thị" text="Chọn cột hiển thị" press="setColumnsVisible">
+							<m:layoutData>
+								<m:OverflowToolbarLayoutData priority="NeverOverflow" />
+							</m:layoutData>
+						</m:OverflowToolbarButton>
+						<m:OverflowToolbarButton type="Transparent" icon="sap-icon://reset" tooltip="Sắp xếp mặc định" text="Sắp xếp mặc định" press="clearOrders" />
+						<m:OverflowToolbarButton type="Transparent" icon="sap-icon://excel-attachment" tooltip="Xuất file Excel" text="Xuất file Excel" press="exportExcel" />
+					</m:OverflowToolbar>
+				</extension>
+				<columns>
+					<Column width="3rem" sortProperty="STT" sortOrder="Ascending">
+						<m:Label text="STT" />
+						<template>
+							<m:Text text="{mainModel>STT}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column sortProperty="id" sortOrder="Ascending">
+						<m:Label text="ID" />
+						<template>
+							<m:Text text="{mainModel>id}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column sortProperty="makh" sortOrder="Ascending">
+						<m:Label text="Mã khách hàng" />
+						<template>
+							<m:Text text="{mainModel>makh}" wrapping="false" />
+						</template>
+					</Column>
+
+					<Column sortProperty="ngaydat" sortOrder="Ascending">
+						<m:Label text="Ngày đặt" />
+						<template>
+							<m:Text text="{mainModel>ngaydat}" wrapping="false" />
+						</template>
+					</Column>
+
+				</columns>
+				<rowActionTemplate>
+					<RowAction>
+						<items>
+							<RowActionItem text="Chi tiết" icon="sap-icon://detail-view" press="onRowView" />
+							<RowActionItem text="Sửa" icon="sap-icon://edit" press="onRowEdit" />
+							<RowActionItem text="Xóa" icon="sap-icon://delete" press="onRowDelete" />
+							<RowActionItem text="Phân quyền nâng cao" icon="sap-icon://role" press="onPermissionForSoftware" />
+							<RowActionItem text="Cài đặt thông báo hệt hạn" icon="sap-icon://bell" press="onAlertSelectRequest" />
+						</items>
+					</RowAction>
+				</rowActionTemplate>
+			</Table>
+		</f:content>
+	</f:DynamicPage>
+</mvc:View>

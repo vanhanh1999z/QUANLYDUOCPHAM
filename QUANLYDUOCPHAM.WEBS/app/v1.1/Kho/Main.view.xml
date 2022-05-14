@@ -1,0 +1,3 @@
+﻿<View xmlns="sap.f" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" controllerName="app.Kho.Main" height="100%">
+	<FlexibleColumnLayout id="pageLayout" backgroundDesign="Translucent"></FlexibleColumnLayout>
+</View>

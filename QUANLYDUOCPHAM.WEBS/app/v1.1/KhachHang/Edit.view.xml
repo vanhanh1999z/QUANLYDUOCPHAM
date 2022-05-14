@@ -1,0 +1,62 @@
+<core:View height="100%" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table" controllerName="app.KhachHang.Edit">
+	<Page showHeader="false">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<f:Form id="FormChange471" editable="true">
+					<f:toolbar>
+						<Toolbar id="TB1">
+							<Title text="Chỉnh sửa thông tin hàng hóa" />
+							<ToolbarSpacer />
+						</Toolbar>
+					</f:toolbar>
+
+					<f:layout>
+						<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" />
+					</f:layout>
+					<f:formContainers>
+						<f:FormContainer>
+							<f:formElements>
+
+								<f:FormElement label="ID">
+									<f:fields>
+										<Input id="maKh" editable="false" maxLength="255" value="{mainModel>/id}" />
+									</f:fields>
+								</f:FormElement>
+
+								<f:FormElement label="Tên khách hàng">
+									<f:fields>
+										<Input id="tenKh"  maxLength="255" value="{mainModel>/tenkh}" />
+									</f:fields>
+								</f:FormElement>
+
+								<f:FormElement label="Địa chỉ">
+									<f:fields>
+										<Input id="diaChi"  maxLength="255" value="{mainModel>/diachi}" />
+									</f:fields>
+								</f:FormElement>
+
+								<f:FormElement label="Số điện thoại">
+									<f:fields>
+										<Input id="dienThoai"  maxLength="255" value="{mainModel>/dienthoai}" />
+									</f:fields>
+								</f:FormElement>
+
+							</f:formElements>
+						</f:FormContainer>
+					</f:formContainers>
+				</f:Form>
+			</VBox>
+
+		</content>
+		<footer>
+			<Toolbar active="true">
+				<content>
+					<ToolbarSpacer />
+					<Button text="Hoàn tất" type="Accept" icon="sap-icon://accept" press="save" />
+					<Button text="Đặt lại" type="Ghost" icon="sap-icon://reset" press="clearForm" />
+					<Button text="Hủy bỏ" type="Reject" icon="sap-icon://cancel" press="onCancel" />
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</core:View>

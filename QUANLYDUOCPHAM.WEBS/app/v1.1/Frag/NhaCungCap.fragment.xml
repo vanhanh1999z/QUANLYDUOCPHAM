@@ -1,0 +1,51 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<TableSelectDialog
+		contentWidth = "1000px"
+		contentHeight = "600px"
+			id="dialogNCC"
+			noDataText="Không có dữ liệu..."
+			title="Lựa chọn nhà cung cấp"
+			search=".handleSearch"
+			confirm=".handleClose"
+			cancel=".handleClose"
+			items="{
+				path : '/NhaCungCap',
+				sorter : {
+					path : 'id',
+					descending : false
+				}
+			}">
+			<ColumnListItem vAlign="Middle">
+				<cells>
+					<ObjectIdentifier  title="{id}" text="{tenncc}" />
+					<Text class="textRed" text="{diachi}" />
+					<Text text="{
+						path: 'dienthoai',
+						formatter: '.fs.telephoneNumber'
+					}" />
+				</cells>
+			</ColumnListItem>
+			<columns>
+				<Column width="12em">
+					<header>
+						<Text text="Tên nhà cung cấp" />
+					</header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<header>
+						<Text text="Địa chỉ" />
+					</header>
+				</Column>
+				<Column
+					minScreenWidth="Desktop"
+					demandPopin="true"
+					hAlign="End">
+					<header>
+						<Text text="Số điện thoại" />
+					</header>
+				</Column>
+			</columns>
+		</TableSelectDialog>
+</core:FragmentDefinition>

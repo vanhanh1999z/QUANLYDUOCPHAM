@@ -1,0 +1,11 @@
+
+    <core:FragmentDefinition
+        xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+        xmlns:core="sap.ui.core">
+        <Dialog id="addKhachHangDialog" contentHeight="450px" contentWidth="760px" resizable="true" draggable="true"  showHeader="false">
+            <content>
+                <mvc:XMLView viewName="app.KhachHang.Add" id="app.KhachHang.Add"/>
+            </content>
+        </Dialog>
+    </core:FragmentDefinition>
+        

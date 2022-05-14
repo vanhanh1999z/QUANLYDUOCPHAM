@@ -1,0 +1,114 @@
+<core:FragmentDefinition controllerName="app.PhieuGiao.Detail" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+    <VBox class="sapUiSmallMargin">
+        <f:Form id="FormChange471" editable="true">
+            <f:toolbar>
+                <Toolbar id="TB1">
+                    <Title text="{mainModel>/id}" />
+                    <ToolbarSpacer />
+                    <Button icon="sap-icon://edit" press="onEditButtonPress" />
+                    <Button icon="sap-icon://delete" press="onDeleteButtonPress" />
+                </Toolbar>
+            </f:toolbar>
+            <f:layout>
+                <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false" />
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="ID">
+                            <f:fields>
+                                <Text text="{mainModel>/id}" id="maPhieu" />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Ngày giao">
+                            <f:fields>
+                                <Text text="{
+                                    path: 'mainModel>/ngaygiao',
+                                    type: 'sap.ui.model.type.DateTime',
+                                    formatOptions: {
+                                    source: { pattern: 'yyyy-MM-ddTHH:mm:ss.SSS', UTC: true },
+                                    pattern: 'dd/MM/yyyy',
+                                    UTC: false
+                                    }
+                                }" id="ngayGiao" />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Tổng tiền giao">
+                            <f:fields>
+                                <Text text="{
+                                    path:'mainModel>/tongtiengiao',
+                                    type: 'sap.ui.model.type.Float',
+                                    formatOptions: {
+                                    minFractionDigits: 0}
+                                }" id="tongTienTra" />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Mã Kho">
+                            <f:fields>
+                                <Text text="{mainModel>/idkho}" id="maKho" />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Mã đơn đặt">
+                            <f:fields>
+                                <Text text="{mainModel>/iddondat}" id="maDonDat" />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Trạng thái nhận">
+                            <f:fields>
+                                <Text text="{
+                                path: 'mainModel>/trangthainhan',
+                                formatter: '.fs.trangThaiNhan'
+                            }" id="trangThaiNhan" />
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+                <f:FormContainer>
+                    <f:formElements>
+                        <f:FormElement label="Tên khách hàng">
+                            <f:fields>
+                                <Text text="{mainModel>/tenkh}"  />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Địa chỉ khách hàng">
+                            <f:fields>
+                                <Text text="{mainModel>/diachikh}"  />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="SĐT khách">
+                            <f:fields>
+                                <Text text="{
+                                    path:'mainModel>/dienthoai',
+                                    formatter: '.fs.telephoneNumber'
+                                    }"  />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Tên kho">
+                            <f:fields>
+                                <Text text="{mainModel>/tenkho}"  />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Địa chỉ kho">
+                            <f:fields>
+                                <Text text="{mainModel>/diachi}"  />
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Ngày đặt">
+                            <f:fields>
+                                <Text text="{
+                                    path: 'mainModel>/ngaydat',
+                                    type: 'sap.ui.model.type.DateTime',
+                                    formatOptions: {
+                                    source: { pattern: 'yyyy-MM-ddTHH:mm:ss.SSS', UTC: true },
+                                    pattern: 'dd/MM/yyyy',
+                                    UTC: false
+                                    }
+                                }" />
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+    </VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,60 @@
+<core:View height="100%"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:cc="app.ext.Controls"
+    xmlns:dnd="sap.ui.core.dnd"
+    xmlns:u="sap.ui.unified"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:t="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc" controllerName="app.DonMua.Add">
+    <Page>
+        <customHeader>
+            <Toolbar design="Solid">
+                <Title text="Thêm mới" level="H4" />
+                <ToolbarSpacer />
+                <Button icon="sap-icon://decline" tooltip="Đóng" press="closeArea" />
+            </Toolbar>
+        </customHeader>
+        <content>
+            <VBox>
+                <f:Form editable="true" class="displayForm">
+                    <f:layout>
+                        <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" />
+                    </f:layout>
+                    <f:formContainers>
+                        <f:FormContainer>
+                            <f:formElements>
+                                <f:FormElement label="ID">
+                                    <f:fields>
+                                        <Input id="id" name="id" value ='{orgModel>/id}' fieldGroupIds='addGroup' maxLength="255" required="true" />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Nhà cung cấp">
+                                    <f:fields>
+                                        <Input id="idncc" type="Text" placeholder="Vui lòng nhập dữ liệu" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleValueHelp" class="sapUiSmallMarginBottom"/>
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Ngày mua">
+                                    <f:fields>
+                                        <DatePicker name="ngaymua" id="ngaymua" value="{orgModel>/ngaymua}" fieldGroupIds='addGroup' valueFormat="dd/MM/yyyy" displayFormat="dd/MM/yyyy" />
+                                    </f:fields>
+                                </f:FormElement>
+                            </f:formElements>
+                        </f:FormContainer>
+                    </f:formContainers>
+                </f:Form>
+            </VBox>
+        </content>
+        <footer>
+            <Toolbar>
+                <content>
+                    <ToolbarSpacer />
+                    <Button text="Hoàn tất" type="Accept" icon="sap-icon://accept" press="save" />
+                    <Button text="Đặt lại" type="Ghost" icon="sap-icon://reset" press="clearForm" />
+                    <Button text="Hủy bỏ" type="Reject" icon="sap-icon://cancel" press="closeArea" />
+                </content>
+            </Toolbar>
+        </footer>
+    </Page>
+</core:View>

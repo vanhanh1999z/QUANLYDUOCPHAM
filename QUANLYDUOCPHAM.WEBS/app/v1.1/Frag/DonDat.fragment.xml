@@ -1,0 +1,48 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<TableSelectDialog
+		contentWidth = "1000px"
+		contentHeight = "600px"
+			id="donDatDialog"
+			noDataText="Không có dữ liệu..."
+			title="Lựa chọn đơn dặt"
+			search=".handleSearch"
+			confirm=".handleClose"
+			cancel=".handleClose"
+			items="{
+				path : '/DonDat',
+				sorter : {
+					path : 'id',
+					descending : false
+				}
+			}">
+			<ColumnListItem vAlign="Middle">
+				<cells>
+					<ObjectIdentifier  title="{id}" />
+					<Text class="textRed" text="{makh}" />
+					<Text text="{ngaydat}" />
+				</cells>
+			</ColumnListItem>
+			<columns>
+				<Column width="12em">
+					<header>
+						<Text text="Mã đơn" />
+					</header>
+				</Column>
+				<Column minScreenWidth="Tablet" demandPopin="true">
+					<header>
+						<Text text="Tên khách hàng" />
+					</header>
+				</Column>
+				<Column
+					minScreenWidth="Desktop"
+					demandPopin="true"
+					hAlign="End">
+					<header>
+						<Text text="Ngày đặt" />
+					</header>
+				</Column>
+			</columns>
+		</TableSelectDialog>
+</core:FragmentDefinition>

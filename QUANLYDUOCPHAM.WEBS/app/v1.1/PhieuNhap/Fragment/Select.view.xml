@@ -1,0 +1,24 @@
+﻿<core:View height="100%"
+xmlns:core="sap.ui.core"
+xmlns="sap.m"
+xmlns:l="sap.ui.layout"
+xmlns:cc="app.ext.Controls"
+xmlns:dnd="sap.ui.core.dnd"
+xmlns:u="sap.ui.unified"
+xmlns:f="sap.ui.layout.form"
+xmlns:t="sap.ui.table"
+xmlns:mvc="sap.ui.core.mvc"
+controllerName="app.PhieuNhap.Fragment.Select">
+	<SelectDialog
+		title="Products"
+		items="{donMuaModel>/}"
+		search="_handleValueHelpSearch"
+		confirm="_handleValueHelpClose"
+		cancel="_handleValueHelpClose">
+		<StandardListItem
+			iconDensityAware="false"
+			iconInset="false"
+			title="{donMuaModel>id}"
+			description="{donMuaModel>ngaymua}" />
+	</SelectDialog>
+</core:View>

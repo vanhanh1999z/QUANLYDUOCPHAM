@@ -1,0 +1,71 @@
+{
+	"selectedKey": "page2",
+	"navigation": [
+		{
+			"title": "Qu?n lý kho hàng",
+			"icon": "sap-icon://employee",
+			"expanded": true,
+			"key": "root1",
+			"items": [
+				{
+					"title": "Danh m?c hàng",
+					"key": "pageDanhMucHang"
+				},
+				{
+					"title": "Danh m?c kho",
+					"key": "pageDanhMucKho"
+				}
+			]
+		},
+		{
+			"title": "Nhà cung c?p và khách hàng",
+			"icon": "sap-icon://building",
+			"key": "root2"
+		},
+		{
+			"title": "Nhà cung c?p và khách hàng",
+			"icon": "sap-icon://card",
+			"expanded": false,
+			"items": [
+				{
+					"title": "Nhà cung c?p",
+					"key": "pageNhaCungCap"
+				},
+				{
+					"title": "Khách hàng",
+					"key" :  "pageKhachHang"
+				}
+			]
+		},
+		{
+			"title": "Qu?n lý nh?p hàng",
+			"icon": "sap-icon://action",
+			"expanded": false,
+			"items": [
+				{
+					"title": "Child Item 1"
+				},
+				{
+					"title": "Child Item 2"
+				},
+				{
+					"title": "Child Item 3"
+				}
+			]
+		}
+	],
+	"fixedNavigation": [
+		{
+			"title": "Fixed Item 1",
+			"icon": "sap-icon://employee"
+		},
+		{
+			"title": "Fixed Item 2",
+			"icon": "sap-icon://building"
+		},
+		{
+			"title": "Fixed Item 3",
+			"icon": "sap-icon://card"
+		}
+	]
+}

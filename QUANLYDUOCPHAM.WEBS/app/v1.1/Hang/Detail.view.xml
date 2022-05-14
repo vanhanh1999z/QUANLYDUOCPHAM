@@ -1,0 +1,41 @@
+﻿<core:FragmentDefinition controllerName="app.Hang.Detail" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<VBox class="sapUiSmallMargin">
+		<f:Form id="FormChange471" editable="true">
+			<f:toolbar>
+				<Toolbar id="TB1">
+					<Title text="{mainModel>/id}" />
+					<ToolbarSpacer />
+					<Button icon="sap-icon://edit" press="onEditButtonPress" />
+					<Button icon="sap-icon://delete" press="onDeleteButtonPress" />
+				</Toolbar>
+			</f:toolbar>
+
+			<f:layout>
+				<f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="1" emptySpanL="1" emptySpanM="1" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Tên hàng">
+							<f:fields>
+								<Text text="{mainModel>/tenhang}" id="tenHang" />
+							</f:fields>
+						</f:FormElement>
+
+						<f:FormElement label="Mô tả">
+							<f:fields>
+								<Text text="{mainModel>/mota}" id="moTa" />
+							</f:fields>
+						</f:FormElement>
+
+						<f:FormElement label="Đơn vị">
+							<f:fields>
+								<Text text="{mainModel>/donvi}" id="donVi" />
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</VBox>
+</core:FragmentDefinition>

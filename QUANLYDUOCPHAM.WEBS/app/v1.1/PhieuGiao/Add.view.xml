@@ -1,0 +1,91 @@
+<core:View height="100%"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:cc="app.ext.Controls"
+    xmlns:dnd="sap.ui.core.dnd"
+    xmlns:u="sap.ui.unified"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:t="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc" controllerName="app.PhieuGiao.Add">
+    <Page>
+        <customHeader>
+            <Toolbar design="Solid">
+                <Title text="Thêm mới" level="H4" />
+                <ToolbarSpacer />
+                <Button icon="sap-icon://decline" tooltip="Đóng" press="closeArea" />
+            </Toolbar>
+        </customHeader>
+        <content>
+            <VBox>
+                <f:Form editable="true" class="displayForm">
+                    <f:layout>
+                        <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" />
+                    </f:layout>
+                    <f:formContainers>
+                        <f:FormContainer>
+                            <f:formElements>
+
+                                <f:FormElement label="ID">
+                                    <f:fields>
+                                        <Input id="maPhieu" name = 'id' fieldGroupIds='addGroup' maxLength="255" required="false" />
+                                    </f:fields>
+                                </f:FormElement>
+
+                                <f:FormElement label="Ngày giao">
+                                    <f:fields>
+                                        <DatePicker name="ngaygiao" id="ngaygiao" fieldGroupIds='addGroup' valueFormat="dd/MM/yyyy" displayFormat="dd/MM/yyyy" />
+                                        <!-- <Input id="ngayGiao" maxLength="255" required="false" /> -->
+                                    </f:fields>
+                                </f:FormElement>
+
+                                <f:FormElement label="Tổng tiền giao">
+                                    <f:fields>
+                                        <Input id="tongTienGiao" liveChange='onChangeTienGiao' name = 'tongtiengiao' fieldGroupIds='addGroup' maxLength="255" required="false" />
+                                    </f:fields>
+                                </f:FormElement>
+
+                                <f:FormElement label="Mã Kho">
+                                    <f:fields>
+                                        <Input id="idkho" name = "idkho" type="Text" placeholder="Vui lòng nhập dữ liệu" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleValueHelpKho" class="sapUiSmallMarginBottom"/>
+                                        <!-- <Input id="maKho" maxLength="255" required="false" /> -->
+                                    </f:fields>
+                                </f:FormElement>
+
+                                <f:FormElement label="Mã đơn đặt">
+                                    <f:fields>
+                                        <Input id="iddondat" name = "iddondat" type="Text" placeholder="Vui lòng nhập dữ liệu" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleValueHelpDonDat" class="sapUiSmallMarginBottom"/>
+
+                                        <!-- <Input id="maDonDat" maxLength="255" required="false" /> -->
+                                    </f:fields>
+                                </f:FormElement>
+
+                                <f:FormElement label="Trạng thái nhận">
+                                    <f:fields>
+                                        <Select id="trangThaiNhan" fieldGroupIds='addGroup' name='trangthainhan'>
+                                            <core:Item key="0" text="Chưa nhận" />
+                                            <core:Item key="1" text="Đã nhận" />
+                                        </Select>
+                                        <!-- <Input id="trangThaiNhan"  fieldGroupIds='addGroup' name='trangthainhan' maxLength="255" required="false" /> -->
+                                    </f:fields>
+                                </f:FormElement>
+
+
+                            </f:formElements>
+                        </f:FormContainer>
+                    </f:formContainers>
+                </f:Form>
+            </VBox>
+        </content>
+        <footer>
+            <Toolbar>
+                <content>
+                    <ToolbarSpacer />
+                    <Button text="Hoàn tất" type="Accept" icon="sap-icon://accept" press="save" />
+                    <Button text="Đặt lại" type="Ghost" icon="sap-icon://reset" press="clearForm" />
+                    <Button text="Hủy bỏ" type="Reject" icon="sap-icon://cancel" press="closeArea" />
+                </content>
+            </Toolbar>
+        </footer>
+    </Page>
+</core:View>

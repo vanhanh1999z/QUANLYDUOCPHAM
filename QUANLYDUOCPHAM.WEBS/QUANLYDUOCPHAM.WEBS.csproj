@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3DA2C54B-9015-4B96-888C-A24683CD8684}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QUANLYDUOCPHAM.WEBS</RootNamespace>
+    <AssemblyName>QUANLYDUOCPHAM.WEBS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44301</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\init.js" />
+    <Content Include="app\v1.1\DonDat\Add.controller.js" />
+    <Content Include="app\v1.1\DonDat\Add.fragment.xml" />
+    <Content Include="app\v1.1\DonDat\Add.view.xml" />
+    <Content Include="app\v1.1\DonDat\Detail.controller.js" />
+    <Content Include="app\v1.1\DonDat\Detail.fragment.xml" />
+    <Content Include="app\v1.1\DonDat\Detail.view.xml" />
+    <Content Include="app\v1.1\DonDat\Edit.controller.js" />
+    <Content Include="app\v1.1\DonDat\Edit.fragment.xml" />
+    <Content Include="app\v1.1\DonDat\Edit.view.xml" />
+    <Content Include="app\v1.1\DonDat\List.controller.js" />
+    <Content Include="app\v1.1\DonDat\List.view.xml" />
+    <Content Include="app\v1.1\DonMua\Add.controller.js" />
+    <Content Include="app\v1.1\DonMua\Add.fragment.xml" />
+    <Content Include="app\v1.1\DonMua\Add.view.xml" />
+    <Content Include="app\v1.1\DonMua\Detail.controller.js" />
+    <Content Include="app\v1.1\DonMua\Detail.fragment.xml" />
+    <Content Include="app\v1.1\DonMua\Detail.view.xml" />
+    <Content Include="app\v1.1\DonMua\Edit.controller.js" />
+    <Content Include="app\v1.1\DonMua\Edit.fragment.xml" />
+    <Content Include="app\v1.1\DonMua\Edit.view.xml" />
+    <Content Include="app\v1.1\DonMua\List.controller.js" />
+    <Content Include="app\v1.1\DonMua\List.view.xml" />
+    <Content Include="app\v1.1\globalformatter.js" />
+    <Content Include="app\v1.1\Hang\Add.controller.js" />
+    <Content Include="app\v1.1\Hang\Add.fragment.xml" />
+    <Content Include="app\v1.1\Hang\Add.view.xml" />
+    <Content Include="app\v1.1\Hang\Detail.controller.js" />
+    <Content Include="app\v1.1\Hang\Detail.fragment.xml" />
+    <Content Include="app\v1.1\Hang\Detail.view.xml" />
+    <Content Include="app\v1.1\Hang\Edit.controller.js" />
+    <Content Include="app\v1.1\Hang\Edit.fragment.xml" />
+    <Content Include="app\v1.1\Hang\Edit.view.xml" />
+    <Content Include="app\v1.1\Hang\List.controller.js" />
+    <Content Include="app\v1.1\Hang\List.view.xml" />
+    <Content Include="app\v1.1\Hang\Main.controller.js" />
+    <Content Include="app\v1.1\Hang\Main.view.xml" />
+    <Content Include="app\v1.1\KhachHang\Add.controller.js" />
+    <Content Include="app\v1.1\KhachHang\Add.fragment.xml" />
+    <Content Include="app\v1.1\KhachHang\Add.view.xml" />
+    <Content Include="app\v1.1\KhachHang\Detail.controller.js" />
+    <Content Include="app\v1.1\KhachHang\Detail.fragment.xml" />
+    <Content Include="app\v1.1\KhachHang\Detail.view.xml" />
+    <Content Include="app\v1.1\KhachHang\Edit.controller.js" />
+    <Content Include="app\v1.1\KhachHang\Edit.fragment.xml" />
+    <Content Include="app\v1.1\KhachHang\Edit.view.xml" />
+    <Content Include="app\v1.1\KhachHang\List.controller.js" />
+    <Content Include="app\v1.1\KhachHang\List.view.xml" />
+    <Content Include="app\v1.1\Kho\Add.controller.js" />
+    <Content Include="app\v1.1\Kho\Add.fragment.xml" />
+    <Content Include="app\v1.1\Kho\Add.view.xml" />
+    <Content Include="app\v1.1\Kho\Detail.controller.js" />
+    <Content Include="app\v1.1\Kho\Detail.fragment.xml" />
+    <Content Include="app\v1.1\Kho\Detail.view.xml" />
+    <Content Include="app\v1.1\Kho\Edit.controller.js" />
+    <Content Include="app\v1.1\Kho\Edit.fragment.xml" />
+    <Content Include="app\v1.1\Kho\Edit.view.xml" />
+    <Content Include="app\v1.1\Kho\List.controller.js" />
+    <Content Include="app\v1.1\Kho\List.view.xml" />
+    <Content Include="app\v1.1\Kho\Main.controller.js" />
+    <Content Include="app\v1.1\Kho\Main.view.xml" />
+    <Content Include="app\v1.1\appConfig.js" />
+    <Content Include="app\v1.1\Component.js" />
+    <Content Include="app\v1.1\controller\ShellBarWithSplitApp.controller.js" />
+    <Content Include="app\v1.1\Customer\List.controller.js" />
+    <Content Include="app\v1.1\Customer\List.view.xml" />
+    <Content Include="app\v1.1\ext\3rd\xlsx.core.min.js" />
+    <Content Include="app\v1.1\ext\Auth.Connector.Adal.js" />
+    <Content Include="app\v1.1\ext\Controls\CoreButton.js" />
+    <Content Include="app\v1.1\ext\Controls\CoreOverflowToolbarButton.js" />
+    <Content Include="app\v1.1\ext\CoreJsonModel.js" />
+    <Content Include="app\v1.1\ext\moment\library.js" />
+    <Content Include="app\v1.1\ext\moment\moment-with-locales.js" />
+    <Content Include="app\v1.1\ext\moment\moment-with-locales.min.js" />
+    <Content Include="app\v1.1\ext\moment\moment.js" />
+    <Content Include="app\v1.1\ext\SavJsonModel.js" />
+    <Content Include="app\v1.1\ext\SavListBinding.js" />
+    <Content Include="app\v1.1\init.js" />
+    <Content Include="app\v1.1\NhaCungCap\Add.controller.js" />
+    <Content Include="app\v1.1\NhaCungCap\Add.fragment.xml" />
+    <Content Include="app\v1.1\NhaCungCap\Add.view.xml" />
+    <Content Include="app\v1.1\NhaCungCap\Detail.controller.js" />
+    <Content Include="app\v1.1\NhaCungCap\Detail.fragment.xml" />
+    <Content Include="app\v1.1\NhaCungCap\Detail.view.xml" />
+    <Content Include="app\v1.1\NhaCungCap\Edit.controller.js" />
+    <Content Include="app\v1.1\NhaCungCap\Edit.fragment.xml" />
+    <Content Include="app\v1.1\NhaCungCap\Edit.view.xml" />
+    <Content Include="app\v1.1\NhaCungCap\List.controller.js" />
+    <Content Include="app\v1.1\NhaCungCap\List.view.xml" />
+    <Content Include="app\v1.1\PhieuChi\Add.controller.js" />
+    <Content Include="app\v1.1\PhieuChi\Add.fragment.xml" />
+    <Content Include="app\v1.1\PhieuChi\Add.view.xml" />
+    <Content Include="app\v1.1\PhieuChi\Detail.controller.js" />
+    <Content Include="app\v1.1\PhieuChi\Detail.fragment.xml" />
+    <Content Include="app\v1.1\PhieuChi\Detail.view.xml" />
+    <Content Include="app\v1.1\PhieuChi\Edit.controller.js" />
+    <Content Include="app\v1.1\PhieuChi\Edit.fragment.xml" />
+    <Content Include="app\v1.1\PhieuChi\Edit.view.xml" />
+    <Content Include="app\v1.1\PhieuChi\List.controller.js" />
+    <Content Include="app\v1.1\PhieuChi\List.view.xml" />
+    <Content Include="app\v1.1\PhieuGiao\Add.controller.js" />
+    <Content Include="app\v1.1\PhieuGiao\Add.fragment.xml" />
+    <Content Include="app\v1.1\PhieuGiao\Add.view.xml" />
+    <Content Include="app\v1.1\PhieuGiao\Detail.controller.js" />
+    <Content Include="app\v1.1\PhieuGiao\Detail.fragment.xml" />
+    <Content Include="app\v1.1\PhieuGiao\Detail.view.xml" />
+    <Content Include="app\v1.1\PhieuGiao\Edit.controller.js" />
+    <Content Include="app\v1.1\PhieuGiao\Edit.fragment.xml" />
+    <Content Include="app\v1.1\PhieuGiao\Edit.view.xml" />
+    <Content Include="app\v1.1\PhieuGiao\List.controller.js" />
+    <Content Include="app\v1.1\PhieuGiao\List.view.xml" />
+    <Content Include="app\v1.1\PhieuNhap\Add.controller.js" />
+    <Content Include="app\v1.1\PhieuNhap\Add.fragment.xml" />
+    <Content Include="app\v1.1\PhieuNhap\Add.view.xml" />
+    <Content Include="app\v1.1\PhieuNhap\Detail.controller.js" />
+    <Content Include="app\v1.1\PhieuNhap\Detail.fragment.xml" />
+    <Content Include="app\v1.1\PhieuNhap\Detail.view.xml" />
+    <Content Include="app\v1.1\PhieuNhap\Edit.controller.js" />
+    <Content Include="app\v1.1\PhieuNhap\Edit.fragment.xml" />
+    <Content Include="app\v1.1\PhieuNhap\Edit.view.xml" />
+    <Content Include="app\v1.1\PhieuNhap\Fragment\Select.controller.js" />
+    <Content Include="app\v1.1\PhieuNhap\Fragment\Select.view.xml" />
+    <Content Include="app\v1.1\PhieuNhap\Fragment\Select.fragment.xml" />
+    <Content Include="app\v1.1\PhieuNhap\List.controller.js" />
+    <Content Include="app\v1.1\PhieuNhap\List.view.xml" />
+    <Content Include="app\v1.1\PhieuThu\Add.controller.js" />
+    <Content Include="app\v1.1\PhieuThu\Add.fragment.xml" />
+    <Content Include="app\v1.1\PhieuThu\Add.view.xml" />
+    <Content Include="app\v1.1\PhieuThu\Detail.controller.js" />
+    <Content Include="app\v1.1\PhieuThu\Detail.fragment.xml" />
+    <Content Include="app\v1.1\PhieuThu\Detail.view.xml" />
+    <Content Include="app\v1.1\PhieuThu\Edit.controller.js" />
+    <Content Include="app\v1.1\PhieuThu\Edit.fragment.xml" />
+    <Content Include="app\v1.1\PhieuThu\Edit.view.xml" />
+    <Content Include="app\v1.1\PhieuThu\List.controller.js" />
+    <Content Include="app\v1.1\PhieuThu\List.view.xml" />
+    <Content Include="app\v1.1\Root.controller.js" />
+    <Content Include="app\v1.1\Root.view.xml" />
+    <Content Include="app\v1.1\RootMaster.controller.js" />
+    <Content Include="app\v1.1\RootMaster.view.xml" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="app\v1.1\manifest.json" />
+    <Content Include="app\v1.1\model\model.json" />
+    <Content Include="app\v1.1\ext\moment\moment-with-locales.min.js.map" />
+    <Content Include="app\v1.1\model.json" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>9763</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44301/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

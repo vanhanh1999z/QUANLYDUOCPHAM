@@ -1,0 +1,7 @@
+﻿<core:FragmentDefinition xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
+	<Dialog id="addSoftwareDlg" contentHeight="450px" contentWidth="760px" resizable="true" draggable="true" showHeader="false">
+		<content>
+			<mvc:XMLView viewName="app.Hang.Add" id="app.Hang.Add" />
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

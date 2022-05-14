@@ -1,0 +1,191 @@
+{
+    "sap.app": {
+        "id": "app",
+        "applicationVersion": {
+            "version": "1.0.0"
+        }
+    },
+    "sap.ui5": {
+        "rootView": {
+            "viewName": "app.Root",
+            "type": "XML",
+            "async": true,
+            "id": "app.Root"
+        },
+        "dependencies": {
+            "libs": {
+                "sap.f": {},
+                "sap.m": {},
+                "sap.tnt": {}
+            }
+        },
+        "models": {
+
+        },
+
+        "config": {
+            "sample": {
+                "stretch": true,
+                "files": [
+                    "controller/ShellBarWithSplitApp.controller.js",
+                    "model/model.json",
+                    "view/ShellBarWithSplitApp.view.xml",
+                    "view/NavigationList.fragment.xml",
+                    "view/SideNavigation.fragment.xml",
+                    "manifest.json"
+                ]
+            }
+        },
+        "resources": {
+            "css": [{
+                "uri": "/app/v1.1/css/master.css"
+            }],
+            "js": [{
+                "uri": "/ext/moment/moment.js"
+            }]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "app",
+                "controlId": "appRoot",
+                "controlAggregation": "detailPages",
+                "clearTarget": false,
+                "async": true,
+                "bypassed": {
+                    "target": "PageNotFound"
+                }
+            },
+            "routes": [{
+                    "pattern": "",
+                    "name": "homepage",
+                    "target": ["rootMaster", "quanlykho"]
+                },
+                {
+                    "pattern": "quan-ly-kho",
+                    "name": "quanlykho",
+                    "target": ["rootMaster", "quanlykho"]
+                },
+                {
+                    "pattern": "quan-ly-hang",
+                    "name": "quanlyhang",
+                    "target": ["rootMaster", "quanlyhang"]
+                },
+                {
+                    "pattern": "quan-ly-khach-hang",
+                    "name": "quanlykhachhang",
+                    "target": ["rootMaster", "quanlykhachhang"]
+                },
+                {
+                    "pattern": "nha-cung-cap",
+                    "name": "quanlyncc",
+                    "target": ["rootMaster", "quanlyncc"]
+                },
+                {
+                    "pattern": "nhap-hang",
+                    "name": "nhaphang",
+                    "target": ["rootMaster", "nhaphang"]
+                },
+                {
+                    "pattern": "xuat-hang",
+                    "name": "xuathang",
+                    "target": ["rootMaster", "xuathang"]
+                },
+                {
+                    "pattern": "bao-cao",
+                    "name": "baocao",
+                    "target": ["rootMaster", "baocao"]
+                },
+                {
+                    "pattern": "nhap-hang",
+                    "name": "phieunhap",
+                    "target": ["rootMaster", "nhaphang"]
+                },
+                {
+                    "pattern": "don-mua",
+                    "name": "donmua",
+                    "target": ["rootMaster", "donmua"]
+                },
+                {
+                    "pattern": "phieu-chi",
+                    "name": "phieuchi",
+                    "target": ["rootMaster", "phieuchi"]
+                }
+
+            ],
+            "targets": {
+                "rootMaster": {
+                    "viewId": "RootMaster",
+                    "viewName": "RootMaster",
+                    "controlId": "appRoot",
+                    "controlAggregation": "masterPages",
+                    "viewLevel": 1
+                },
+                "quanlykho": {
+                    "viewId": "quanlykho",
+                    "viewName": "Kho.List",
+                    "controlId": "appRoot",
+                    "controlAggregation": "detailPages",
+                    "viewLevel": 2
+                },
+                "quanlyhang": {
+                    "viewId": "quanlyhang",
+                    "viewName": "Hang.List",
+                    "controlId": "appRoot",
+                    "controlAggregation": "detailPages",
+                    "viewLevel": 3
+                },
+                "quanlykhachhang": {
+                    "viewId": "quanlykhachhang",
+                    "viewName": "KhachHang.List",
+                    "controlId": "appRoot",
+                    "controlAggregation": "detailPages",
+                    "viewLevel": 4
+                },
+                "quanlyncc": {
+                    "viewId": "quanlyncc",
+                    "viewName": "NhaCungCap.List",
+                    "controlId": "appRoot",
+                    "controlAggregation": "detailPages",
+                    "viewLevel": 5
+                },
+                "nhaphang": {
+                    "viewId": "nhaphang",
+                    "viewName": "PhieuNhap.List",
+                    "controlId": "appRoot",
+                    "controlAggregation": "detailPages",
+                    "viewLevel": 6
+                },
+                "xuathang": {
+                    "viewId": "xuathang",
+                    "viewName": "PhieuGiao.List",
+                    "controlId": "appRoot",
+                    "controlAggregation": "detailPages",
+                    "viewLevel": 7
+                },
+                "baocao": {
+                    "viewId": "baocao",
+                    "viewName": "BaoCao.List",
+                    "controlId": "appRoot",
+                    "controlAggregation": "detailPages",
+                    "viewLevel": 8
+                },
+                "donmua": {
+                    "viewId": "donmua",
+                    "viewName": "DonMua.List",
+                    "controlId": "appRoot",
+                    "controlAggregation": "detailPages",
+                    "viewLevel": 9
+                },
+                "phieuchi": {
+                    "viewId": "phieuchi",
+                    "viewName": "PhieuChi.List",
+                    "controlId": "appRoot",
+                    "controlAggregation": "detailPages",
+                    "viewLevel": 10
+                }
+            }
+        }
+    }
+}
